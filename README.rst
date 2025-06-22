@@ -19,7 +19,8 @@ is a Cortext-M33 running at 250MHz, with 640KB of RAM and 1MB of ROM. It include
 a single blue LED, and has a Pyboard form factor.
 
 This repository provides board support and build instructions for running MicroPython
-on the WEACT_H562RGT6 (STM32H562RG) Pyboard.
+on the WEACT_H562RGT6 (STM32H562RG) Pyboard. If you don't want to build your own a DFU
+file is provided.
 
 
 Quick Start: Build and Flash MicroPython Firmware
