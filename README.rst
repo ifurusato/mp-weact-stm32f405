@@ -154,6 +154,8 @@ This is a first release and while the board can be successfully flashed and the
 REPL is available (from rshell), no extensive testing has been done, particularly
 as regards pin definitions.
 
+There is a known bug: the LED's logic seems reversed: on() is off, off() is on.
+
 
 Support & Liability
 *******************
