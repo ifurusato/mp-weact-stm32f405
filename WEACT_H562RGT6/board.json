@@ -1,0 +1,15 @@
+{
+    "deploy": [
+        "../deploy.md"
+    ],
+    "docs": "",
+    "features": [],
+    "images": [
+        "weact_h562rgt6.jpg"
+    ],
+    "mcu": "stm32h5",
+    "product": "WeAct STM32H562RGT6",
+    "thumbnail": "",
+    "url": "https://github.com/WeActStudio/WeActStudio.STM32H5_64Pin_CoreBoard",
+    "vendor": "WeAct Studio"
+}
