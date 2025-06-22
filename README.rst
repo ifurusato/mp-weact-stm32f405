@@ -106,30 +106,29 @@ The output firmware will be in:
     build-WEACT_H562RGT6/firmware.hex
     build-WEACT_H562RGT6/firmware.bin
 
-It's recommended that you copy the DFU file to a suitably-named
-one, e.g., `WEACT_20250622-v1.25.0.dfu` or `WEACT_20250622-v1.25.0.bin`,
-depending on what format you plan to use for flashing the board (see
-below).
+It's highly recommended that you copy and rename the DFU file to match your
+build, date and version, e.g.,
+`WEACT_STM32H562_20250622-v1.26.0-preview.dfu` 
+or `WEACT_STM32H562_20250622-v1.26.0-preview.bin`,
+depending on what format you plan to use for flashing the board (see below).
 
 
 Flash the Firmware
 ~~~~~~~~~~~~~~~~~~
 
-Use your preferred STM32 flashing tool. 
+Use your preferred STM32 flashing tool.
 
-Example using ``st-flash``:
-
-.. code-block:: bash
-
-    st-flash write build-WEACT_H562RGT6/WEACT_20250622-v1.25.0.bin 0x08000000
-
-or, if using ``df-util``:
+If using STM32CubeProgrammer or DFU, refer to their documentation. An example using ``st-flash``:
 
 .. code-block:: bash
 
-    dfu-util --alt 0 -D WEACT_20250622-v1.25.0.dfu
+    st-flash write WEACT_STM32H562_20250622-v1.26.0-preview.bin 0x08000000
 
-If using STM32CubeProgrammer or DFU, refer to their documentation.
+or, if using `dfu-util <https://dfu-util.sourceforge.net/>`__:
+
+.. code-block:: bash
+
+    dfu-util --alt 0 -D WEACT_STM32H562_20250622-v1.26.0-preview.dfu
 
 
 Troubleshooting
@@ -153,8 +152,6 @@ Status
 This is a first release and while the board can be successfully flashed and the
 REPL is available (from rshell), no extensive testing has been done, particularly
 as regards pin definitions.
-
-There is a known bug: the LED's logic seems reversed: on() is off, off() is on.
 
 
 Support & Liability
