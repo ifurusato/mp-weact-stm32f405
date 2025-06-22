@@ -1,5 +1,5 @@
 **********************************************************************
-Board files to compile MicroPython for the WeAct STM32F405RGT6 Pyboard
+Board files to compile MicroPython for the WeAct STM32H562RGT6 Pyboard
 **********************************************************************
 
 Background
