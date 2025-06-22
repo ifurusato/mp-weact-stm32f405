@@ -8,12 +8,13 @@ Background
 
 .. figure:: WEACT_H562RGT6/weact_h562rgt6.jpg
    :width: 1260px
-   :height: 856px
    :align: center
    :alt: The WeAct STM32H562RGT6 Pyboard
 
    The WeAct STM32H562RGT6 Pyboard.
    
+The WeAct STM32H562 is a Cortext-M33 running at 250MHz, with 640KB of RAM and 1MB of ROM.
+It includes an SD card, a single blue LED, and has a Pyboard form factor.
 
 This repository provides board support and build instructions for running MicroPython 
 on the WEACT_H562RGT6 (STM32H562RG) Pyboard.
