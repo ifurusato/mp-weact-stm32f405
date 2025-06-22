@@ -38,7 +38,7 @@ Prerequisites
 - Git
 - GNU Make
 - ARM GCC toolchain (e.g., ``gcc-arm-none-eabi``)
-- ``st-flash`` or STM32CubeProgrammer for flashing
+- ``df-util``, ``st-flash`` or STM32CubeProgrammer for flashing
 
 Install Required Packages (Ubuntu/Debian example)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -102,19 +102,35 @@ The output firmware will be in:
 
 ::
 
+    build-WEACT_H562RGT6/firmware.dfu
     build-WEACT_H562RGT6/firmware.hex
     build-WEACT_H562RGT6/firmware.bin
+
+It's recommended that you copy the DFU file to a suitably-named
+one, e.g., `WEACT_20250622-v1.25.0.dfu` or `WEACT_20250622-v1.25.0.bin`,
+depending on what format you plan to use for flashing the board (see
+below).
+
 
 Flash the Firmware
 ~~~~~~~~~~~~~~~~~~
 
-Use your preferred STM32 flashing tool. Example using ``st-flash``:
+Use your preferred STM32 flashing tool. 
+
+Example using ``st-flash``:
 
 .. code-block:: bash
 
-    st-flash write build-WEACT_H562RGT6/firmware.bin 0x08000000
+    st-flash write build-WEACT_H562RGT6/WEACT_20250622-v1.25.0.bin 0x08000000
+
+or, if using ``df-util``:
+
+.. code-block:: bash
+
+    dfu-util --alt 0 -D WEACT_20250622-v1.25.0.dfu
 
 If using STM32CubeProgrammer or DFU, refer to their documentation.
+
 
 Troubleshooting
 ~~~~~~~~~~~~~~~
