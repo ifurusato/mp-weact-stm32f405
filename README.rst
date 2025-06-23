@@ -158,8 +158,7 @@ Change Log
 
 **2025-06-23:**
 
-- Initial MicroPython port for STM32H562 (WEACT_H562RGT6)
-- Modified ``pins.csv`` with the following UART mappings:
+- Modified ``pins.csv`` with the following mappings supporting UART 1-4:
 
 +--------+--------+--------+
 | UART   | TX Pin | RX Pin |
@@ -178,7 +177,7 @@ Change Log
 
 **2025-06-22:**
 
-- initial commit
+- Initial MicroPython port for STM32H562 (WEACT_H562RGT6)
 
 
 Status
