@@ -1,9 +1,9 @@
-**********************************************************************
+======================================================================
 Board files to compile MicroPython for the WeAct STM32H562RGT6 Pyboard
-**********************************************************************
+======================================================================
 
 Background
-**********
+==========
 
 
 .. figure:: WEACT_H562RGT6/weact_h562rgt6.jpg
@@ -33,7 +33,7 @@ Follow these steps to build and flash MicroPython for the WEACT_H562RGT6 board.
     :depth: 1
 
 Prerequisites
-~~~~~~~~~~~~~
+=============
 
 - Ubuntu/Debian (or similar), macOS, or WSL (Windows Subsystem for Linux)
 - Git
@@ -41,16 +41,21 @@ Prerequisites
 - ARM GCC toolchain (e.g., ``gcc-arm-none-eabi``)
 - ``df-util``, ``st-flash`` or STM32CubeProgrammer for flashing
 
+
+Build Instructions
+==================
+
 Install Required Packages (Ubuntu/Debian example)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------------------
 
 .. code-block:: bash
 
     sudo apt update
     sudo apt install -y git make gcc-arm-none-eabi libnewlib-arm-none-eabi build-essential
 
+
 Clone MicroPython and Submodules
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------
 
 .. code-block:: bash
 
@@ -58,8 +63,9 @@ Clone MicroPython and Submodules
     cd micropython
     git submodule update --init --recursive
 
+
 (Optional) Checkout a Specific MicroPython Version
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------------------------
 
 .. code-block:: bash
 
@@ -68,7 +74,7 @@ Clone MicroPython and Submodules
     git submodule update --init --recursive
 
 Add the Board Definition
-~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------
 
 Copy or create your board definition in:
 
@@ -85,14 +91,14 @@ You will need at least the following files:
 - ``stm32h562rg.ld``
 
 Build the MicroPython Cross Compiler
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------
 
 .. code-block:: bash
 
     make -C mpy-cross
 
 Build MicroPython for WEACT_H562RGT6
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------
 
 .. code-block:: bash
 
@@ -115,7 +121,7 @@ depending on what format you plan to use for flashing the board (see below).
 
 
 Flash the Firmware
-~~~~~~~~~~~~~~~~~~
+==================
 
 Use your preferred STM32 flashing tool.
 
@@ -133,7 +139,7 @@ or, if using `dfu-util <https://dfu-util.sourceforge.net/>`__:
 
 
 Troubleshooting
-~~~~~~~~~~~~~~~
+===============
 
 - If you change board files or the linker script, run:
 
@@ -147,8 +153,36 @@ Troubleshooting
 - For serial REPL access, connect to the board's USB or UART port and use a terminal program (e.g., ``rshell``, ``picocom``, ``minicom``, or ``screen``).
 
 
+Change Log
+==========
+
+**2025-06-23:**
+
+- Initial MicroPython port for STM32H562 (WEACT_H562RGT6)
+- Modified ``pins.csv`` with the following UART mappings:
+
++--------+--------+--------+
+| UART   | TX Pin | RX Pin |
++========+========+========+
+| UART1  |  PA9   | PA10   |
++--------+--------+--------+
+| UART2  |  PA2   | PA3    |
++--------+--------+--------+
+| UART3  | PB10   | PB11   |
++--------+--------+--------+
+| UART4  | PC10   | PC11   |
++--------+--------+--------+
+
+- Verified UART1–4 operation with a test script using default pins
+
+
+**2025-06-22:**
+
+- initial commit
+
+
 Status
-******
+======
 
 This is a first release and while the board can be successfully flashed and the
 REPL is available (from rshell), no extensive testing has been done, particularly
@@ -156,14 +190,14 @@ as regards pin definitions.
 
 
 Support & Liability
-*******************
+===================
 
 This project comes with no promise of support or acceptance of liability. Use at
 your own risk.
 
 
 Copyright & License
-*******************
+===================
 
 All contents Copyright 2020-2025 by Murray Altheim. All rights reserved.
 

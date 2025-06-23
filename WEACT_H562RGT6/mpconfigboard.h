@@ -5,7 +5,7 @@
 #define MICROPY_HW_ENABLE_INTERNAL_FLASH_STORAGE (1)
 #define MICROPY_HW_ENABLE_RTC               (1)
 #define MICROPY_HW_ENABLE_RNG               (1)
-#define MICROPY_HW_ENABLE_ADC               (1)
+#define MICROPY_HW_ENABLE_ADC               (0)  // no ADC support
 #define MICROPY_HW_ENABLE_DAC               (1)
 #define MICROPY_HW_ENABLE_USB               (1)
 #define MICROPY_HW_HAS_SWITCH               (0)
@@ -36,9 +36,16 @@
 
 #define MICROPY_HW_RTC_USE_LSE              (1)
 
-// UART config (change if your board uses different pins for UART1)
-#define MICROPY_HW_UART1_TX                 (pin_A9)
-#define MICROPY_HW_UART1_RX                 (pin_A10)
+
+// UART config (change if your board uses different pins for UART1, which has 'pin_A9', 'pin_A10' as working values)
+#define MICROPY_HW_UART1_TX                 (pyb_pin_UART1_TX)
+#define MICROPY_HW_UART1_RX                 (pyb_pin_UART1_RX)
+#define MICROPY_HW_UART2_TX                 (pyb_pin_UART2_TX)
+#define MICROPY_HW_UART2_RX                 (pyb_pin_UART2_RX)
+#define MICROPY_HW_UART3_TX                 (pyb_pin_UART3_TX)
+#define MICROPY_HW_UART3_RX                 (pyb_pin_UART3_RX)
+#define MICROPY_HW_UART4_TX                 (pyb_pin_UART4_TX)
+#define MICROPY_HW_UART4_RX                 (pyb_pin_UART4_RX)
 #define MICROPY_HW_UART_REPL                PYB_UART_1
 #define MICROPY_HW_UART_REPL_BAUD           115200
 
