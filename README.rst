@@ -100,10 +100,14 @@ Build the MicroPython Cross Compiler
 Build MicroPython for WEACT_H562RGT6
 ------------------------------------
 
+The normal build will not proceed without error so a build script has
+been created for this purpose. It is executed from micropython root
+directory, not ports/stm32/
+
 .. code-block:: bash
 
-    cd ports/stm32
-    make BOARD=WEACT_H562RGT6
+    
+    build-weactstmh562.sh
 
 The output firmware will be in:
 
@@ -115,7 +119,7 @@ The output firmware will be in:
 
 It's highly recommended that you copy and rename the DFU file to match your
 build, date and version, e.g.,
-`WEACT_STM32H562_20250622-v1.26.0-preview.dfu` 
+`WEACT_STM32H562_20250622-v1.26.0-preview.dfu`
 or `WEACT_STM32H562_20250622-v1.26.0-preview.bin`,
 depending on what format you plan to use for flashing the board (see below).
 
@@ -137,6 +141,12 @@ or, if using `dfu-util <https://dfu-util.sourceforge.net/>`__:
 
     dfu-util --alt 0 -D WEACT_STM32H562_20250622-v1.26.0-preview.dfu
 
+There is a convenient script for this purpose:
+
+.. code-block:: bash
+
+    flash_weact_stm32h562.sh
+
 
 Troubleshooting
 ===============
@@ -147,7 +157,8 @@ Troubleshooting
 
       make BOARD=WEACT_H562RGT6 clean
 
-  before rebuilding.
+  before rebuilding. This is done for you by the build script.
+
 
 - For build errors about missing symbols, ensure your ``stm32h562rg.ld`` linker script includes the required MicroPython flash storage symbols (see board documentation or upstream examples).
 - For serial REPL access, connect to the board's USB or UART port and use a terminal program (e.g., ``rshell``, ``picocom``, ``minicom``, or ``screen``).
@@ -155,6 +166,12 @@ Troubleshooting
 
 Change Log
 ==========
+
+**2025-06-29:**
+
+- A pin conflict between UART 4 and the SD card was noted, so UART 4 is no
+  longer defined, but SD card support has been enabled and tested.
+
 
 **2025-06-23:**
 
@@ -172,20 +189,23 @@ Change Log
 | UART4  | PC10   | PC11   |
 +--------+--------+--------+
 
-- Verified UART1–4 operation with a test script using default pins
+- Verified UART1–3 operation with a test script using default pins
+  UART 4 is no longer supported (conflicts with the SD card, see 
+  the changes for 2025-06-29).
 
 
 **2025-06-22:**
 
 - Initial MicroPython port for STM32H562 (WEACT_H562RGT6)
+- There is currently no ADC support.
 
 
 Status
 ======
 
-This is a first release and while the board can be successfully flashed and the
-REPL is available (from rshell), no extensive testing has been done, particularly
-as regards pin definitions.
+The UF2 file can be successfully flashed to the board, the SD card functions and
+UART 1-3 are enabled. There is no ADC support as a conflict in adc.c was unable
+to be successfully patched in the build script.
 
 
 Support & Liability
