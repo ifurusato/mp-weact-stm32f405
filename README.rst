@@ -23,6 +23,39 @@ on the WEACT_H562RGT6 (STM32H562RG) Pyboard. If you don't want to build your own
 file is provided.
 
 
+Defined Pins
+============
+
+The pins for the WeAct STM32H562 are defined in the pins.csv file. Some pins have required
+remapping to Alternate Function (AF) locations due to conflicts with the SD card.
+
+Two pins for hardware Timer 3 have been changed:
+
++---------+--------+----------+
+| Channel | Pin    | Notes    |
++=========+========+==========+
+| CH1     | PC6    | Default  |
++---------+--------+----------+
+| CH2     | PC7    | Default  |
++---------+--------+----------+
+| CH3     | PB0    | Remapped |
++---------+--------+----------+
+| CH4     | PB1    | Remapped |
++---------+--------+----------+
+
+And UARTs 1-3 have been defined at the following locations:
+
++--------+--------+--------+
+| UART   | TX Pin | RX Pin |
++========+========+========+
+| UART1  |  PA9   | PA10   |
++--------+--------+--------+
+| UART2  |  PA2   | PA3    |
++--------+--------+--------+
+| UART3  | PB10   | PB11   |
++--------+--------+--------+
+
+
 Quick Start: Build and Flash MicroPython Firmware
 -------------------------------------------------
 
@@ -31,6 +64,8 @@ Follow these steps to build and flash MicroPython for the WEACT_H562RGT6 board.
 .. contents::
     :local:
     :depth: 1
+
+
 
 Prerequisites
 =============
@@ -170,20 +205,8 @@ Change Log
 **2025-07-01:**
 
 - A pin conflict between Timer 3 and the SD card has been resolved by defining two AF
-  pins for Timer 3 for channels 3 and 4. Channels 1 and 2 remain at their default values:
-
-+---------+--------+----------+
-| Channel | Pin    | Notes    |
-+=========+========+==========+
-| CH1     | PC6    | Default  |
-+---------+--------+----------+
-| CH2     | PC7    | Default  |
-+---------+--------+----------+
-| CH3     | PB0    | Remapped |
-+---------+--------+----------+
-| CH4     | PB1    | Remapped |
-+---------+--------+----------+
-
+  pins for Timer 3 for channels 3 and 4. Channels 1 and 2 remain at their default values.
+  This is now reflected in the *Defined Pins* section as above.
 
 **2025-06-29:**
 
@@ -193,19 +216,8 @@ Change Log
 
 **2025-06-23:**
 
-- Modified ``pins.csv`` with the following mappings supporting UART 1-4:
-
-+--------+--------+--------+
-| UART   | TX Pin | RX Pin |
-+========+========+========+
-| UART1  |  PA9   | PA10   |
-+--------+--------+--------+
-| UART2  |  PA2   | PA3    |
-+--------+--------+--------+
-| UART3  | PB10   | PB11   |
-+--------+--------+--------+
-| UART4  | PC10   | PC11   |
-+--------+--------+--------+
+- Modified ``pins.csv`` with the following mappings supporting UART 1-3.
+  This is now reflected in the *Defined Pins* section as above.
 
 - Verified UART1–3 operation with a test script using default pins
   UART 4 is no longer supported (conflicts with the SD card, see 
