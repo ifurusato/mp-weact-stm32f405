@@ -89,47 +89,6 @@ fi
 
 touch "$PINS_C" "$PIN_H"
 
-# --- SDMMC1 AF PATCH BEGIN ---
-# If SDMMC1 alternate function macros are missing in the generated header,
-# append them to the board's mpconfigboard.h.
-PIN_AF_HEADER="$BUILD_DIR/pin_static_af.h"
-MPCONFIGBOARD="$PORTS_DIR/boards/$BOARD/mpconfigboard.h"
-PATCH_START="# --- SDMMC1 AF PATCH BEGIN ---"
-PATCH_END="# --- SDMMC1 AF PATCH END ---"
-
-if ! grep -q "STATIC_AF_SDMMC1_CK" "$PIN_AF_HEADER"; then
-    echo "STATIC_AF_SDMMC1_CK not found in $PIN_AF_HEADER. Patching $MPCONFIGBOARD with SDMMC1 AF macros..."
-
-    # Remove previous patch if present
-    sed -i "/$PATCH_START/,/$PATCH_END/d" "$MPCONFIGBOARD"
-
-    # Add patch to mpconfigboard.h
-    cat << EOF >> "$MPCONFIGBOARD"
-$PATCH_START
-// SDMMC1 AF defines (patch inserted by build-weactstmh562.sh)
-#ifndef STATIC_AF_SDMMC1_CK
-#define STATIC_AF_SDMMC1_CK  (12)
-#endif
-#ifndef STATIC_AF_SDMMC1_CMD
-#define STATIC_AF_SDMMC1_CMD (12)
-#endif
-#ifndef STATIC_AF_SDMMC1_D0
-#define STATIC_AF_SDMMC1_D0  (12)
-#endif
-#ifndef STATIC_AF_SDMMC1_D1
-#define STATIC_AF_SDMMC1_D1  (12)
-#endif
-#ifndef STATIC_AF_SDMMC1_D2
-#define STATIC_AF_SDMMC1_D2  (12)
-#endif
-#ifndef STATIC_AF_SDMMC1_D3
-#define STATIC_AF_SDMMC1_D3  (12)
-#endif
-$PATCH_END
-EOF
-fi
-# --- SDMMC1 AF PATCH END ---
-
 echo
 echo "=== 6. Run the full build ==="
 make -C "$PORTS_DIR" BOARD="$BOARD" V=1

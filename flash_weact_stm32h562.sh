@@ -7,7 +7,7 @@
 # you copy and rename the firmware.dfu from the build directory
 # to your local directory.
 
-DFU_FILE=WEACT_STM32H562_20250629-v1.26.0-preview.dfu
+DFU_FILE=WEACT_STM32H562_20250701-v1.26.0-preview.dfu
 
 dfu-util --alt 0 -D $DFU_FILE
 

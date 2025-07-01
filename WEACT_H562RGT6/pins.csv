@@ -113,3 +113,8 @@ SD_D2,PC10
 SD_D3,PC11
 SD_CMD,PD2
 SD_CK,PC12
+# Timer 3 channels mapped to avoid SDMMC conflict
+TIM3_CH1,PC6
+TIM3_CH2,PC7
+TIM3_CH3,PB0
+TIM3_CH4,PB1
