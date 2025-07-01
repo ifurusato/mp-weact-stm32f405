@@ -37,23 +37,23 @@
 
 #define MICROPY_HW_RTC_USE_LSE              (1)
 
-
 // UART config (change if your board uses different pins for UART1, which has 'pin_A9', 'pin_A10' as working values)
 #define MICROPY_HW_UART1_TX                 (pyb_pin_UART1_TX)
 #define MICROPY_HW_UART1_RX                 (pyb_pin_UART1_RX)
 #define MICROPY_HW_UART2_TX                 (pyb_pin_UART2_TX)
 #define MICROPY_HW_UART2_RX                 (pyb_pin_UART2_RX)
-#define MICROPY_HW_UART3_TX                 (pyb_pin_UART3_TX)
-#define MICROPY_HW_UART3_RX                 (pyb_pin_UART3_RX)
+// pins PB10 and PB11 exist only as a white dot
+//#define MICROPY_HW_UART3_TX               (pyb_pin_UART3_TX)
+//#define MICROPY_HW_UART3_RX               (pyb_pin_UART3_RX)
 // UART4 removed to avoid SD card conflict
 // #define MICROPY_HW_UART4_TX              (pyb_pin_UART4_TX)
 // #define MICROPY_HW_UART4_RX              (pyb_pin_UART4_RX)
 #define MICROPY_HW_UART_REPL                PYB_UART_1
 #define MICROPY_HW_UART_REPL_BAUD           115200
 
-// I2C config (default to PB6/PB7, adjust if needed)
-#define MICROPY_HW_I2C1_SCL                 (pin_B6)
-#define MICROPY_HW_I2C1_SDA                 (pin_B7)
+// I2C config (default to PC0/PC1, adjust if needed)
+#define MICROPY_HW_I2C3_SCL                 (pin_C0)
+#define MICROPY_HW_I2C3_SDA                 (pin_C1)
 
 // SPI config (default to PA4/PA5/PA6/PA7, adjust if needed)
 #define MICROPY_HW_SPI1_NSS                 (pin_A4)
@@ -71,17 +71,7 @@
 
 // === SD card (SDMMC/SDIO) support ===
 #define MICROPY_HW_ENABLE_SDCARD            (1)
-// No card detect pin defined, as socket does not provide one
-// #define MICROPY_HW_SDCARD_DETECT_PIN        (pin_Xx)
-// #define MICROPY_HW_SDCARD_DETECT_PULL       (GPIO_PULLUP)
-// #define MICROPY_HW_SDCARD_DETECT_PRESENT    (GPIO_PIN_RESET)
-// SDMMC pins are configured via pins.csv:
-// SD_D0  PC8
-// SD_D1  PC9
-// SD_D2  PC10
-// SD_D3  PC11
-// SD_CMD PD2
-// SD_CK  PC12
+// SDMMC pins are configured via pins.csv
 
 /* --- SDMMC1 AF PATCH BEGIN --- */
 // SDMMC1 AF defines (patch inserted by build-weactstmh562.sh)

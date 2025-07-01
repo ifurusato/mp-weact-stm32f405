@@ -202,6 +202,11 @@ Troubleshooting
 Change Log
 ==========
 
+**2025-07-02:**
+
+- A pin conflict with I2C has required a remapping so that I2C3 is the available.
+  UART 1 and 2, Timer 3 and 4 are defined.
+
 **2025-07-01:**
 
 - A pin conflict between Timer 3 and the SD card has been resolved by defining two AF
