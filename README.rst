@@ -167,6 +167,24 @@ Troubleshooting
 Change Log
 ==========
 
+**2025-07-01:**
+
+- A pin conflict between Timer 3 and the SD card has been resolved by defining two AF
+  pins for Timer 3 for channels 3 and 4. Channels 1 and 2 remain at their default values:
+
++---------+--------+----------+
+| Channel | Pin    | Notes    |
++=========+========+==========+
+| CH1     | PC6    | Default  |
++---------+--------+----------+
+| CH2     | PC7    | Default  |
++---------+--------+----------+
+| CH3     | PB0    | Remapped |
++---------+--------+----------+
+| CH4     | PB1    | Remapped |
++---------+--------+----------+
+
+
 **2025-06-29:**
 
 - A pin conflict between UART 4 and the SD card was noted, so UART 4 is no
