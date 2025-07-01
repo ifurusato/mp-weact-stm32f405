@@ -31,17 +31,17 @@ remapping to Alternate Function (AF) locations due to conflicts with the SD card
 
 Two pins for hardware Timer 3 have been changed:
 
-+---------+--------+----------+
-| Channel | Pin    | Notes    |
-+=========+========+==========+
-| CH1     | PC6    | Default  |
-+---------+--------+----------+
-| CH2     | PC7    | Default  |
-+---------+--------+----------+
-| CH3     | PB0    | Remapped |
-+---------+--------+----------+
-| CH4     | PB1    | Remapped |
-+---------+--------+----------+
++---------+--------+-------------------+
+| Channel | Pin    | Notes             |
++=========+========+===================+
+| CH1     | PC6    | Default           |
++---------+--------+-------------------+
+| CH2     | PC7    | Default           |
++---------+--------+-------------------+
+| CH3     | PB0    | Remapped from PC8 |
++---------+--------+-------------------+
+| CH4     | PB1    | Remapped from PC9 |
++---------+--------+-------------------+
 
 And UARTs 1-3 have been defined at the following locations:
 
