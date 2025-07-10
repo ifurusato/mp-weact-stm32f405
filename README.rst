@@ -15,7 +15,7 @@ Background
 
 
 The `WeAct STM32H562 <https://github.com/WeActStudio/WeActStudio.STM32H5_64Pin_CoreBoard>`__
-is a Cortext-M33 running at 250MHz, with 640KB of RAM and 1MB of ROM. It includes an SD card,
+is a Cortex-M33 running at 250MHz, with 640KB of RAM and 1MB of ROM. It includes an SD card,
 a single blue LED, and has a Pyboard form factor.
 
 This repository provides board support and build instructions for running MicroPython
